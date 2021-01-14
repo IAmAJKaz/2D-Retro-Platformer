@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour {
 
     //Variables for animations
     private Animator theAnimator;
-    
+
+    //Dash variables
+    public float dashForce;
 
     void Start() {
         theRB2D = GetComponent<Rigidbody2D>();
@@ -38,19 +40,18 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
-
+        
+            
         MovePlayer();
         Jump();
 
-
-        //Teleport(); //teleport function for practice quiz
+         
     }
 
     void MovePlayer() {
         if (canMove) {
             theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
-            //Debug.Log(theRB2D.position.y);  //PRACTICE QUIZ
-
+            
             theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
 
             if (theRB2D.velocity.x > 0) {
@@ -63,22 +64,13 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Jump() {
-       if (grounded == true) {
+        if (grounded == true) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
             }
         }
         
-        /*
-        //if statement for jump for practice quiz
-        if (theRB2D.position.y < -3)
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
-            }
-        }
-        */
-       
+              
         if (Input.GetKey(KeyCode.Space)) {
             if(airTimeCounter > 0) {
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
@@ -98,12 +90,22 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    //teleport function for practice quiz
-    /*void Teleport(){
-        if (Input.GetKeyDown(KeyCode.Tab)) {
+    /*
+    void Dash() {
+        dashForce = 100f;
+        if (Input.GetKeyDown(KeyCode.R)) {
+            theRB2D.velocity = new Vector2(theRB2D.position.x + dashForce, theRB2D.position.y);
+        }
+    }
 
-            Vector2 center = new Vector2(0, 0);
-            theRB2D.MovePosition(center);
+
+
+   void Teleport(){
+    
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            
+            Vector2 tp = new Vector2(-1 * theRB2D.position.x, -1 * theRB2D.position.y);
+            theRB2D.MovePosition(tp);
         }
             
     }

@@ -2136,6 +2136,7 @@ MonoBehaviour:
   grdCheckerRad: 0.3
   airTime: 0.25
   airTimeCounter: 0
+  dashForce: 100
 --- !u!61 &659006669
 BoxCollider2D:
   m_ObjectHideFlags: 0
