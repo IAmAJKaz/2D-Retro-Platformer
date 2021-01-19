@@ -90,25 +90,12 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    /*
-    void Dash() {
-        dashForce = 100f;
-        if (Input.GetKeyDown(KeyCode.R)) {
-            theRB2D.velocity = new Vector2(theRB2D.position.x + dashForce, theRB2D.position.y);
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Spike")
+        {
+            Debug.Log("Ouch!");
         }
     }
 
-
-
-   void Teleport(){
-    
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            
-            Vector2 tp = new Vector2(-1 * theRB2D.position.x, -1 * theRB2D.position.y);
-            theRB2D.MovePosition(tp);
-        }
-            
-    }
-    */
 
 }
