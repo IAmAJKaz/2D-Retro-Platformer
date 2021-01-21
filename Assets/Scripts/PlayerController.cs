@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    //Movement Variables
     public float speed;
     private bool canMove;
     private Rigidbody2D theRB2D;
@@ -20,8 +21,11 @@ public class PlayerController : MonoBehaviour {
     //Variables for animations
     private Animator theAnimator;
 
-    //Dash variables
-    public float dashForce;
+    //Spring Variables
+    public bool spring;
+    public LayerMask whatIsSpr;
+
+    public GameManager theGM;
 
     void Start() {
         theRB2D = GetComponent<Rigidbody2D>();
@@ -36,10 +40,15 @@ public class PlayerController : MonoBehaviour {
             canMove = true;
         }
 
+        if (spring) {
+            theRB2D.velocity = new Vector2(theRB2D.velocity.x, 50);
+        }
+
     }
 
     private void FixedUpdate() {
         grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
+        spring = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsSpr);
         
             
         MovePlayer();
@@ -91,9 +100,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Spike")
-        {
+        if(other.gameObject.tag == "Spike") {
             Debug.Log("Ouch!");
+            theGM.GameOver();
         }
     }
 
