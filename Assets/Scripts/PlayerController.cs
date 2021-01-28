@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour {
     public bool spring;
     public LayerMask whatIsSpr;
 
+    //teleport variables
+    public bool teleport;
+    public LayerMask whatIsTele;
+
     public GameManager theGM;
 
     void Start() {
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour {
         theAnimator = GetComponent<Animator>();
 
         airTimeCounter = airTime;
+
     }
 
     
@@ -43,18 +48,22 @@ public class PlayerController : MonoBehaviour {
         if (spring) {
             theRB2D.velocity = new Vector2(theRB2D.velocity.x, 50);
         }
+        
+        if (teleport) {
+            Vector2 teleportPosition = new Vector2(10f, 3f);
+            theRB2D.MovePosition(teleportPosition);
+        }
 
     }
 
     private void FixedUpdate() {
         grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
         spring = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsSpr);
-        
-            
+        teleport = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsTele);
+
         MovePlayer();
         Jump();
-
-         
+   
     }
 
     void MovePlayer() {

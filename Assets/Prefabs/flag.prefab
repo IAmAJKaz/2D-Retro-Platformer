@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5757055634913168315}
   m_Layer: 0
   m_Name: flag
-  m_TagString: Untagged
+  m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697707a04b976a541a8c6ae3ce686718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theGM: {fileID: 0}
