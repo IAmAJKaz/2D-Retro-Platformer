@@ -29,11 +29,19 @@ public class PlayerController : MonoBehaviour {
     public bool teleport;
     public LayerMask whatIsTele;
 
+    //Ceiling Variables
+    public bool ceiling;
+    public LayerMask whatIsCei;
+    public Transform ceiChecker;
+    public float ceiCheckerRad;
+
     public GameManager theGM;
+    private LivesManager theLM;
 
     void Start() {
         theRB2D = GetComponent<Rigidbody2D>();
         theAnimator = GetComponent<Animator>();
+        theLM = FindObjectOfType<LivesManager>();
 
         airTimeCounter = airTime;
 
@@ -60,6 +68,7 @@ public class PlayerController : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
         spring = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsSpr);
         teleport = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsTele);
+        ceiling = Physics2D.OverlapCircle(ceiChecker.position, ceiCheckerRad, whatIsCei);
 
         MovePlayer();
         Jump();
@@ -111,7 +120,8 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Spike") {
             Debug.Log("Ouch!");
-            theGM.GameOver();
+            //theGM.GameOver();
+            theLM.TakeLife();
         }
     }
 
