@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void MovePlayer() {
-        if (canMove) {
+        if (canMove && !ceiling) {
             theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
             
             theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
@@ -88,10 +88,31 @@ public class PlayerController : MonoBehaviour {
                 transform.localScale = new Vector2(-1f, 1f);
             }
         }
+
+        //ceiling walking flip statement
+        else if (ceiling) {
+            theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
+            theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
+            Physics2D.gravity = new Vector2(0, 0);
+            if (theRB2D.velocity.x > 0) {
+                transform.localScale = new Vector2(1f, -1f);
+            }
+            else if (theRB2D.velocity.x < 0) {
+                transform.localScale = new Vector2(-1f, -1f);
+            } 
+        }
     }
 
     void Jump() {
-        if (grounded == true) {
+
+        if (ceiling) {
+            if (Input.GetKeyDown(KeyCode.Space)){
+                theRB2D.velocity = new Vector2(theRB2D.velocity.x, -jumpForce);
+                Physics2D.gravity = new Vector2(0, -9.8f);
+            } 
+        }
+
+        if (grounded) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
             }
