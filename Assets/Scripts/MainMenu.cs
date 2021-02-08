@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public string lvToLoad;
-    
-    
+    public int dfltLives;
+
+    private void Start() {
+        PlayerPrefs.SetInt("CurrentLives", dfltLives);
+    }
+
     public void PlayGame() {
         SceneManager.LoadScene(lvToLoad);
     }

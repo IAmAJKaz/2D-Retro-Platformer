@@ -29,11 +29,11 @@ public class PlayerController : MonoBehaviour {
     public bool teleport;
     public LayerMask whatIsTele;
 
-    //Ceiling Variables
+    /*//Ceiling Variables
     public bool ceiling;
     public LayerMask whatIsCei;
     public Transform ceiChecker;
-    public float ceiCheckerRad;
+    public float ceiCheckerRad;*/
 
     public GameManager theGM;
     private LivesManager theLM;
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
         spring = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsSpr);
         teleport = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsTele);
-        ceiling = Physics2D.OverlapCircle(ceiChecker.position, ceiCheckerRad, whatIsCei);
+        //ceiling = Physics2D.OverlapCircle(ceiChecker.position, ceiCheckerRad, whatIsCei);
 
         MovePlayer();
         Jump();
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void MovePlayer() {
-        if (canMove && !ceiling) {
+        if (canMove) {  // && !ceiling
             theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
             
             theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        //ceiling walking flip statement
+        /*//ceiling walking flip statement
         else if (ceiling) {
             theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
             theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
@@ -100,17 +100,17 @@ public class PlayerController : MonoBehaviour {
             else if (theRB2D.velocity.x < 0) {
                 transform.localScale = new Vector2(-1f, -1f);
             } 
-        }
+        }*/
     }
 
     void Jump() {
 
-        if (ceiling) {
+       /* if (ceiling) {
             if (Input.GetKeyDown(KeyCode.Space)){
                 theRB2D.velocity = new Vector2(theRB2D.velocity.x, -jumpForce);
                 Physics2D.gravity = new Vector2(0, -9.8f);
             } 
-        }
+        }*/
 
         if (grounded) {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour {
         if(other.gameObject.tag == "Spike") {
             Debug.Log("Ouch!");
             //theGM.GameOver();
+            theGM.Reset();
             theLM.TakeLife();
         }
     }

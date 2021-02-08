@@ -468,6 +468,7 @@ MonoBehaviour:
   thePlayer: {fileID: 659006668}
   victoryScreen: {fileID: 647295748}
   gameOverScreen: {fileID: 894043028}
+  mainMenu: MainMenu
 --- !u!4 &113468536
 Transform:
   m_ObjectHideFlags: 0
@@ -1283,7 +1284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee524bbb510c155438c8a356d53d0651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLives: 3
   livesCounter: 0
   livesText: {fileID: 431008167}
 --- !u!4 &354613455
@@ -2951,12 +2951,6 @@ MonoBehaviour:
   whatIsTele:
     serializedVersion: 2
     m_Bits: 1024
-  ceiling: 0
-  whatIsCei:
-    serializedVersion: 2
-    m_Bits: 2048
-  ceiChecker: {fileID: 1802927157}
-  ceiCheckerRad: 0.6
   theGM: {fileID: 113468535}
 --- !u!61 &659006669
 BoxCollider2D:
@@ -7949,7 +7943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1971819143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8112,7 +8106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2069624670
 RectTransform:
   m_ObjectHideFlags: 0
