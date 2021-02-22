@@ -8,7 +8,7 @@ public class GoalPole : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player") {
-            Debug.Log("You win!");
+            //Debug.Log("You win!");
             theGM.Victory();
         }
     }

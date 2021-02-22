@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     //Movement Variables
     public float speed;
+    public float dfltSpeed;
     private bool canMove;
     private Rigidbody2D theRB2D;
 
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour {
 
         airTimeCounter = airTime;
 
+        dfltSpeed = speed;
     }
 
     
@@ -140,7 +142,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Spike") {
-            Debug.Log("Ouch!");
+            //Debug.Log("Ouch!");
             //theGM.GameOver();
             theGM.Reset();
             theLM.TakeLife();

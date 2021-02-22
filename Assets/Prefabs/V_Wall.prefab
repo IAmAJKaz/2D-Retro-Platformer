@@ -46,8 +46,8 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!1001 &1438116848936724961
 PrefabInstance:
@@ -279,8 +279,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: block (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4133049346053112569, guid: 3ccef1bdc31d25d40b2e0153ee18001f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ccef1bdc31d25d40b2e0153ee18001f, type: 3}
 --- !u!4 &5875642694093854424 stripped
 Transform:
