@@ -20,7 +20,13 @@ public class PlatformPatrol : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        RaycastHit2D contactCheck = Physics2D.Raycast(contactChecker.position, Vector2.down, rayLength);
+
+        int layerMask = 1 << 12;
+        layerMask = ~layerMask;
+
+
+        RaycastHit2D contactCheck = Physics2D.Raycast(contactChecker.position, Vector2.down, rayLength, layerMask);
+        //Debug.DrawRay(contactChecker.position, Vector2.down * rayLength, Color.blue);
 
         if (!contactCheck) {
             if (moveLeft) {

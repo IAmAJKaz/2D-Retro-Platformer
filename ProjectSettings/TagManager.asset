@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spike
   - goal
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Spring
   - Teleport
   - Ceiling
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
