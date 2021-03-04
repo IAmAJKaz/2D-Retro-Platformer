@@ -1922,7 +1922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481976810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 146973889}
@@ -7782,7 +7782,6 @@ GameObject:
   - component: {fileID: 2048392307}
   - component: {fileID: 2048392311}
   - component: {fileID: 2048392313}
-  - component: {fileID: 2048392312}
   m_Layer: 13
   m_Name: redA1
   m_TagString: Enemy
@@ -7919,21 +7918,6 @@ MonoBehaviour:
   moveSpeed: 3
   rayLength: 1
   contactChecker: {fileID: 1744700217}
---- !u!111 &2048392312
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048392306}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a2933b5162421934b945eca5d84a7782, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &2048392313
 Animator:
   serializedVersion: 3
@@ -8212,7 +8196,6 @@ GameObject:
   - component: {fileID: 2085321080}
   - component: {fileID: 2085321079}
   - component: {fileID: 2085321085}
-  - component: {fileID: 2085321084}
   m_Layer: 13
   m_Name: orangeA1
   m_TagString: Enemy
@@ -8349,21 +8332,6 @@ Transform:
   m_Father: {fileID: 115668189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &2085321084
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085321078}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a0860e43380d8604cb475cde0206f1d0, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &2085321085
 Animator:
   serializedVersion: 3
