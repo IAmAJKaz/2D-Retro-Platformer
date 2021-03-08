@@ -24,7 +24,7 @@ public class LivesManager : MonoBehaviour {
         livesText.text = "x " + livesCounter;
 
         if (livesCounter < 1) {
-            theGM.GameOver();
+            StartCoroutine("QueGameOver");
         }
     }
 
@@ -37,5 +37,11 @@ public class LivesManager : MonoBehaviour {
         livesCounter++;
         PlayerPrefs.SetInt("CurrentLives", livesCounter);
     }
+
+    IEnumerator QueGameOver() {
+        yield return new WaitForSeconds(1.5f);
+        theGM.GameOver();
+    }
+
 
 }
