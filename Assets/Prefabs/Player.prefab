@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4410954727516648975}
   - component: {fileID: 4410954727516648969}
   - component: {fileID: 4410954727516648968}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Stomper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
